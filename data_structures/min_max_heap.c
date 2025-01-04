@@ -16,7 +16,7 @@ void swap(int *a, int *b) {
     *b = temp;
 }
 
-// Função de "heapify-up" para Min-Heap
+// Funções de heapify para Min-Heap
 void min_heapify_up(Heap *heap, int index) {
     while (index > 0 && heap->arr[index] < heap->arr[(index - 1) / 2]) {
         swap(&heap->arr[index], &heap->arr[(index - 1) / 2]);
@@ -24,37 +24,6 @@ void min_heapify_up(Heap *heap, int index) {
     }
 }
 
-// Função de "heapify-up" para Max-Heap
-void max_heapify_up(Heap *heap, int index) {
-    while (index > 0 && heap->arr[index] > heap->arr[(index - 1) / 2]) {
-        swap(&heap->arr[index], &heap->arr[(index - 1) / 2]);
-        index = (index - 1) / 2;
-    }
-}
-
-// Função para inserir na Min-Heap
-void insert_min_heap(Heap *heap, int value) {
-    if (heap->size >= MAX_SIZE) {
-        printf("Heap is full!\n");
-        return;
-    }
-    heap->arr[heap->size] = value;
-    min_heapify_up(heap, heap->size);
-    heap->size++;
-}
-
-// Função para inserir na Max-Heap
-void insert_max_heap(Heap *heap, int value) {
-    if (heap->size >= MAX_SIZE) {
-        printf("Heap is full!\n");
-        return;
-    }
-    heap->arr[heap->size] = value;
-    max_heapify_up(heap, heap->size);
-    heap->size++;
-}
-
-// Função de "heapify-down" para Min-Heap
 void min_heapify_down(Heap *heap, int index) {
     int left = 2 * index + 1;
     int right = 2 * index + 2;
@@ -72,7 +41,14 @@ void min_heapify_down(Heap *heap, int index) {
     }
 }
 
-// Função de "heapify-down" para Max-Heap
+// Funções de heapify para Max-Heap
+void max_heapify_up(Heap *heap, int index) {
+    while (index > 0 && heap->arr[index] > heap->arr[(index - 1) / 2]) {
+        swap(&heap->arr[index], &heap->arr[(index - 1) / 2]);
+        index = (index - 1) / 2;
+    }
+}
+
 void max_heapify_down(Heap *heap, int index) {
     int left = 2 * index + 1;
     int right = 2 * index + 2;
@@ -90,7 +66,55 @@ void max_heapify_down(Heap *heap, int index) {
     }
 }
 
-// Função para remover a raiz da Min-Heap
+
+// Função para imprimir a Heap
+void print_heap(Heap *heap) {
+    for (int i = 0; i < heap->size; i++) {
+        printf("%d ", heap->arr[i]);
+    }
+    printf("\n");
+}
+
+
+// Estrutura para operações de heap
+typedef struct {
+    void (*insert)(Heap *, int);
+    int (*remove)(Heap *);
+    void (*heapify_up)(Heap *, int);
+    void (*heapify_down)(Heap *, int);
+    void (*print)(Heap *);
+} HeapOperations;
+
+
+
+HeapOperations minheap_ops = {
+    insert_min_heap,
+    remove_min,
+    min_heapify_up,
+    min_heapify_down,
+    print_heap
+};
+
+HeapOperations maxheap_ops = {
+    insert_max_heap,
+    remove_max,
+    max_heapify_up,
+    max_heapify_down,
+    print_heap
+};
+
+
+// Funções específicas para Min-Heap
+void insert_min_heap(Heap *heap, int value) {
+    if (heap->size >= MAX_SIZE) {
+        printf("Heap is full!\n");
+        return;
+    }
+    heap->arr[heap->size] = value;
+    min_heapify_up(heap, heap->size);
+    heap->size++;
+}
+
 int remove_min(Heap *heap) {
     if (heap->size == 0) {
         printf("Heap is empty!\n");
@@ -103,7 +127,17 @@ int remove_min(Heap *heap) {
     return min;
 }
 
-// Função para remover a raiz da Max-Heap
+// Funções específicas para Max-Heap
+void insert_max_heap(Heap *heap, int value) {
+    if (heap->size >= MAX_SIZE) {
+        printf("Heap is full!\n");
+        return;
+    }
+    heap->arr[heap->size] = value;
+    max_heapify_up(heap, heap->size);
+    heap->size++;
+}
+
 int remove_max(Heap *heap) {
     if (heap->size == 0) {
         printf("Heap is empty!\n");
@@ -116,41 +150,37 @@ int remove_max(Heap *heap) {
     return max;
 }
 
-// Função para imprimir a Heap
-void print_heap(Heap *heap) {
-    for (int i = 0; i < heap->size; i++) {
-        printf("%d ", heap->arr[i]);
-    }
-    printf("\n");
-}
-
 int main() {
-    Heap min_heap = {{0}, 0};
-    Heap max_heap = {{0}, 0};
+    Heap min_heap = {
+        {0}, 0
+    };
+    Heap max_heap = {
+        {0}, 0
+    };
 
-    insert_min_heap(&min_heap, 10);
-    insert_min_heap(&min_heap, 20);
-    insert_min_heap(&min_heap, 5);
-    insert_min_heap(&min_heap, 30);
+    minheap_ops.insert(&min_heap, 10);
+    minheap_ops.insert(&min_heap, 20);
+    minheap_ops.insert(&min_heap, 5);
+    minheap_ops.insert(&min_heap, 30);
 
     printf("Min-Heap: ");
-    print_heap(&min_heap);
+    minheap_ops.print(&min_heap);
 
-    insert_max_heap(&max_heap, 10);
-    insert_max_heap(&max_heap, 20);
-    insert_max_heap(&max_heap, 5);
-    insert_max_heap(&max_heap, 30);
+    maxheap_ops.insert(&max_heap, 10);
+    maxheap_ops.insert(&max_heap, 20);
+    maxheap_ops.insert(&max_heap, 5);
+    maxheap_ops.insert(&max_heap, 30);
 
     printf("Max-Heap: ");
-    print_heap(&max_heap);
+    maxheap_ops.print(&max_heap);
 
-    printf("Removed from Min-Heap: %d\n", remove_min(&min_heap));
+    printf("Removed from Min-Heap: %d\n", minheap_ops.remove(&min_heap));
     printf("Min-Heap after removal: ");
-    print_heap(&min_heap);
+    minheap_ops.print(&min_heap);
 
-    printf("Removed from Max-Heap: %d\n", remove_max(&max_heap));
+    printf("Removed from Max-Heap: %d\n", maxheap_ops.remove(&max_heap));
     printf("Max-Heap after removal: ");
-    print_heap(&max_heap);
+    maxheap_ops.print(&max_heap);
 
     return 0;
 }
