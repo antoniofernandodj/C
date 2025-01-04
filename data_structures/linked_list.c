@@ -9,19 +9,19 @@ typedef struct node {
 } Node;
 
 // Estrutura de uma lista
-typedef struct list {
+typedef struct linkedlist {
     Node* head;  // Ponteiro para o início da lista
     int size;    // Tamanho da lista
-} List;
+} LinkedList;
 
 // Inicializa a lista
-void init_list(List* list) {
+void init_list(LinkedList* list) {
     list->head = NULL;
     list->size = 0;
 }
 
 // Função para adicionar um valor ao final da lista (push_to_list)
-void push_to_list(List* list, int value) {
+void push_to_list(LinkedList* list, int value) {
     Node* new_node = (Node*)malloc(sizeof(Node));
     if (!new_node) {
         printf("Erro ao alocar memória.\n");
@@ -45,14 +45,14 @@ void push_to_list(List* list, int value) {
 }
 
 // Função para adicionar vários valores de um array à lista (push_many)
-void push_many_to_list(List* list, int values[], int count) {
+void push_many_to_list(LinkedList* list, int values[], int count) {
     for (int i = 0; i < count; i++) {
         push_to_list(list, values[i]);
     }
 }
 
 // Função para remover o último valor da lista (pop)
-int pop_from_list(List* list) {
+int pop_from_list(LinkedList* list) {
     if (!list->head) {
         printf("Erro: Lista vazia.\n");
         return -1;  // Retorna -1 para indicar erro
@@ -78,7 +78,7 @@ int pop_from_list(List* list) {
 }
 
 // Função para encontrar um valor na lista (find)
-int find_in_list(List* list, int value) {
+int find_in_list(LinkedList* list, int value) {
     Node* current = list->head;
     int i = 0;
     while (current) {
@@ -92,7 +92,7 @@ int find_in_list(List* list, int value) {
 }
 
 // Função para encontrar um valor na lista (find)
-Node* get_node(List* list, int value) {
+Node* get_node(LinkedList* list, int value) {
     Node* current = list->head;
     while (current) {
         if (current->value == value) {
@@ -104,7 +104,7 @@ Node* get_node(List* list, int value) {
 }
 
 // Função para remover um valor específico da lista (remove)
-int remove_value(List* list, int value) {
+int remove_value(LinkedList* list, int value) {
     Node* target = get_node(list, value);
     if (!target ) {
         printf("Valor %d não encontrado.\n", value);
@@ -128,7 +128,7 @@ int remove_value(List* list, int value) {
 }
 
 // Exibe todos os elementos da lista
-void print_list(List* list) {
+void print_list(LinkedList* list) {
     Node* current = list->head;
     printf("Lista: [ ");
     while (current) {
@@ -139,7 +139,7 @@ void print_list(List* list) {
 }
 
 // Libera a memória alocada pela lista
-void free_list(List* list) {
+void free_list(LinkedList* list) {
     Node* current = list->head;
     while (current) {
         Node* next = current->next;
@@ -150,25 +150,25 @@ void free_list(List* list) {
     list->size = 0;
 }
 
-int len_list(List* list) {
+int len_list(LinkedList* list) {
     return list->size;
 }
 
 
 typedef struct list_operations {
-    void (*init)(List*);
-    void (*push)(List*, int);
-    void (*push_many)(List*, int[], int);
-    int (*pop)(List*);
-    int (*find)(List*, int);
-    int (*remove)(List*, int);
-    void (*print)(List*);
-    void (*free)(List*);
-    int (*len)(List*);
-} ListOperations;
+    void (*init)(LinkedList*);
+    void (*push)(LinkedList*, int);
+    void (*push_many)(LinkedList*, int[], int);
+    int (*pop)(LinkedList*);
+    int (*find)(LinkedList*, int);
+    int (*remove)(LinkedList*, int);
+    void (*print)(LinkedList*);
+    void (*free)(LinkedList*);
+    int (*len)(LinkedList*);
+} LinkedListOperations;
 
 // Implementação das funções do namespace
-ListOperations list = {
+LinkedListOperations list = {
     .push = push_to_list,
     .push_many = push_many_to_list,
     .pop = pop_from_list,
@@ -183,7 +183,7 @@ ListOperations list = {
 
 // Função principal
 int main() {
-    List l;
+    LinkedList l;
     list.init(&l);
 
     // Adiciona valores à lista
