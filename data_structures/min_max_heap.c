@@ -66,7 +66,6 @@ void max_heapify_down(Heap *heap, int index) {
     }
 }
 
-
 // Função para imprimir a Heap
 void print_heap(Heap *heap) {
     for (int i = 0; i < heap->size; i++) {
@@ -86,24 +85,6 @@ typedef struct {
 } HeapOperations;
 
 
-
-HeapOperations minheap_ops = {
-    insert_min_heap,
-    remove_min,
-    min_heapify_up,
-    min_heapify_down,
-    print_heap
-};
-
-HeapOperations maxheap_ops = {
-    insert_max_heap,
-    remove_max,
-    max_heapify_up,
-    max_heapify_down,
-    print_heap
-};
-
-
 // Funções específicas para Min-Heap
 void insert_min_heap(Heap *heap, int value) {
     if (heap->size >= MAX_SIZE) {
@@ -114,6 +95,7 @@ void insert_min_heap(Heap *heap, int value) {
     min_heapify_up(heap, heap->size);
     heap->size++;
 }
+
 
 int remove_min(Heap *heap) {
     if (heap->size == 0) {
@@ -150,13 +132,27 @@ int remove_max(Heap *heap) {
     return max;
 }
 
+
+HeapOperations minheap_ops = {
+    .insert = insert_min_heap,
+    .remove = remove_min,
+    .heapify_up = min_heapify_up,
+    .heapify_down = min_heapify_down,
+    .print = print_heap
+};
+
+HeapOperations maxheap_ops = {
+    .insert = insert_max_heap,
+    .remove = remove_max,
+    .heapify_up = max_heapify_up,
+    .heapify_down = max_heapify_down,
+    .print = print_heap
+};
+
+
 int main() {
-    Heap min_heap = {
-        {0}, 0
-    };
-    Heap max_heap = {
-        {0}, 0
-    };
+    Heap min_heap = {{0}, 0};
+    Heap max_heap = {{0}, 0};
 
     minheap_ops.insert(&min_heap, 10);
     minheap_ops.insert(&min_heap, 20);

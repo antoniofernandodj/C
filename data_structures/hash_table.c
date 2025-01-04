@@ -125,7 +125,7 @@ typedef struct {
 } HashTableOperations;
 
 // Operações disponíveis
-HashTableOperations hashtable = {
+HashTableOperations hash_table = {
     .init = init_hash_table,
     .insert = hash_table_insert,
     .search = hash_table_search,
@@ -137,26 +137,26 @@ HashTableOperations hashtable = {
 // Função principal
 int main() {
     HashTable table;
-    hashtable.init(&table);
+    hash_table.init(&table);
 
-    hashtable.insert(&table, "apple", 50);
-    hashtable.insert(&table, "banana", 30);
-    hashtable.insert(&table, "grape", 20);
-    hashtable.insert(&table, "pear", 15);
+    hash_table.insert(&table, "apple", 50);
+    hash_table.insert(&table, "banana", 30);
+    hash_table.insert(&table, "grape", 20);
+    hash_table.insert(&table, "pear", 15);
 
-    hashtable.print(&table);
+    hash_table.print(&table);
 
     int found;
-    int value = hashtable.search(&table, "banana", &found);
+    int value = hash_table.search(&table, "banana", &found);
     if (found) {
         printf("Encontrado: banana -> %d\n", value);
     } else {
         printf("Chave 'banana' não encontrada.\n");
     }
 
-    hashtable.remove(&table, "grape");
-    hashtable.print(&table);
+    hash_table.remove(&table, "grape");
+    hash_table.print(&table);
 
-    hashtable.free(&table);
+    hash_table.free(&table);
     return 0;
 }

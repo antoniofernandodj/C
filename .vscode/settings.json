@@ -11,6 +11,11 @@
         "tuple": "c",
         "type_traits": "c",
         "utility": "c",
-        "numbers": "c"
+        "numbers": "c",
+        "*.tcc": "c",
+        "deque": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "vector": "c"
     }
 }
