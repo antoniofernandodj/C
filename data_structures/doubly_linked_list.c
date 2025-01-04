@@ -141,7 +141,7 @@ typedef struct doubly_linked_list_operations {
 } DoublyLinkedListOperations;
 
 // Operações disponíveis
-DoublyLinkedListOperations list_ops = {
+DoublyLinkedListOperations list = {
     .init = init_list,
     .insert_head = insert_at_head,
     .insert_tail = insert_at_tail,
@@ -154,28 +154,28 @@ DoublyLinkedListOperations list_ops = {
 
 // Função principal para testar a lista
 int main() {
-    DoublyLinkedList list;
-    list_ops.init(&list);
+    DoublyLinkedList l;
+    list.init(&l);
 
-    list_ops.insert_head(&list, 10);
-    list_ops.insert_head(&list, 20);
-    list_ops.insert_tail(&list, 30);
-    list_ops.insert_tail(&list, 40);
+    list.insert_head(&l, 10);
+    list.insert_head(&l, 20);
+    list.insert_tail(&l, 30);
+    list.insert_tail(&l, 40);
 
-    list_ops.display_forward(&list);
-    list_ops.display_backward(&list);
+    list.display_forward(&l);
+    list.display_backward(&l);
 
     printf("Removendo da cabeça...\n");
-    list_ops.remove_head(&list);
-    list_ops.display_forward(&list);
+    list.remove_head(&l);
+    list.display_forward(&l);
 
     printf("Removendo da cauda...\n");
-    list_ops.remove_tail(&list);
-    list_ops.display_forward(&list);
+    list.remove_tail(&l);
+    list.display_forward(&l);
 
     printf("Limpando a lista...\n");
-    list_ops.clear(&list);
-    list_ops.display_forward(&list);
+    list.clear(&l);
+    list.display_forward(&l);
 
     return 0;
 }
