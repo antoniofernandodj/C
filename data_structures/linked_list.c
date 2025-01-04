@@ -155,7 +155,7 @@ int len_list(LinkedList* list) {
 }
 
 
-typedef struct list_operations {
+typedef struct {
     void (*init)(LinkedList*);
     void (*push)(LinkedList*, int);
     void (*push_many)(LinkedList*, int[], int);

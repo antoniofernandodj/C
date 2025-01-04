@@ -129,7 +129,7 @@ void clear_list(DoublyLinkedList* list) {
 }
 
 // Estrutura de operações para a lista
-typedef struct doubly_linked_list_operations {
+typedef struct {
     void (*init)(DoublyLinkedList*);
     void (*insert_head)(DoublyLinkedList*, int);
     void (*insert_tail)(DoublyLinkedList*, int);

@@ -140,7 +140,7 @@ void print_deque(Deque* deque) {
 }
 
 // Estrutura de operações
-typedef struct deque_operations {
+typedef struct {
     void (*init)(Deque*);
     void (*push_front)(Deque*, int);
     void (*push_back)(Deque*, int);

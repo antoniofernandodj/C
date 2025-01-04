@@ -113,7 +113,7 @@ void print_heap(Heap* heap) {
 }
 
 // Estrutura de operações
-typedef struct heap_operations {
+typedef struct {
     void (*init)(Heap*);
     void (*insert)(Heap*, int);
     int (*extract_max)(Heap*);

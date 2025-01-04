@@ -115,7 +115,7 @@ void free_hash_table(HashTable* table) {
 }
 
 // Estrutura de operações
-typedef struct hash_table_operations {
+typedef struct {
     void (*init)(HashTable*);
     void (*insert)(HashTable*, const char*, int);
     int (*search)(HashTable*, const char*, int*);

@@ -179,7 +179,7 @@ void print_element(Data element) {
 }
 
 // Estrutura de operações para o namespace
-typedef struct genarray_operations {
+typedef struct {
     GenericArray* (*create)();
     void (*push)(GenericArray*, void*, DataType);
     void (*push_many)(GenericArray*, int[], int);

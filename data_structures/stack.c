@@ -82,7 +82,7 @@ void print_stack(Stack* stack) {
 }
 
 // Estrutura de operações
-typedef struct stack_operations {
+typedef struct {
     void (*init)(Stack*);
     void (*push)(Stack*, int);
     int (*pop)(Stack*);

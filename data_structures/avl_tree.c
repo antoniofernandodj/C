@@ -177,7 +177,7 @@ void free_tree(AVLNode* root) {
 }
 
 // Namespace com operações da árvore AVL
-typedef struct avl_operations {
+typedef struct {
     AVLNode* (*insert)(AVLNode*, int);
     AVLNode* (*delete)(AVLNode*, int);
     void (*print)(AVLNode*);

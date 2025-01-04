@@ -95,7 +95,7 @@ int len_array(DynamicArray* array) {
 }
 
 // Estrutura de operações para o namespace
-typedef struct array_operations {
+typedef struct {
     void (*init)(DynamicArray*);
     void (*push)(DynamicArray*, int);
     void (*push_many)(DynamicArray*, int[], int);
