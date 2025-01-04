@@ -245,7 +245,7 @@ int main() {
     printf("After removing index 2:\n");
     genarray.print(arr);
 
-    Data element = get_element(arr, 2);
+    element = get_element(arr, 2);
     print_element(element);
 
     destroy_array(arr);

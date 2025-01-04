@@ -9,7 +9,7 @@ typedef struct Node {
 } Node;
 
 // Estrutura da lista
-typedef struct DoublyLinkedList {
+typedef struct {
     Node* head;
     Node* tail;
     int size;

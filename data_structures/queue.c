@@ -88,7 +88,7 @@ void print_queue(Queue* queue) {
     printf("\n");
 }
 
-typedef struct queue_operations {
+typedef struct {
     void (*init)(Queue*);
     void (*enqueue)(Queue*, int);
     int (*dequeue)(Queue*);

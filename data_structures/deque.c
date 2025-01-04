@@ -7,7 +7,7 @@ typedef struct node {
     struct node* prev;
 } Node;
 
-typedef struct deque {
+typedef struct {
     Node* front;
     Node* rear;
     int size;

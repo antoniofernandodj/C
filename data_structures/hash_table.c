@@ -12,7 +12,7 @@ typedef struct node {
 } Node;
 
 // Estrutura da tabela de hash
-typedef struct hash_table {
+typedef struct {
     Node* buckets[TABLE_SIZE];
 } HashTable;
 

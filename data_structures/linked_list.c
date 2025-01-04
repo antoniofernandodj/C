@@ -9,7 +9,7 @@ typedef struct node {
 } Node;
 
 // Estrutura de uma lista
-typedef struct linkedlist {
+typedef struct {
     Node* head;  // Ponteiro para o início da lista
     int size;    // Tamanho da lista
 } LinkedList;

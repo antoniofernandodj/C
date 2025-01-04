@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 // Estrutura de um array dinâmico
-typedef struct dynamic_array {
+typedef struct {
     int* data;     // Ponteiro para os elementos do array
     int size;      // Número de elementos no array
     int capacity;  // Capacidade do array
