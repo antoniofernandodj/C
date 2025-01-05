@@ -1,0 +1,48 @@
+Aqui estão 10 exercícios práticos para ler e escrever structs em arquivos binários, com diferentes cenários e desafios para ajudá-lo a entender a manipulação de dados binários em C:
+
+1. Gravar e Ler Dados de Configuração
+Objetivo: Escrever uma struct que armazena configurações do sistema (como nome, versão e preferências) em um arquivo binário. Depois, leia os dados para restaurar a configuração.
+Estrutura: Config contendo campos como char name[100], float version, int preferences.
+Desafio: Manipular strings e tipos simples em arquivos binários.
+2. Salvar e Recuperar Lista de Produtos
+Objetivo: Criar um arquivo binário para armazenar uma lista de produtos com id, nome e preço e depois ler o arquivo para exibir a lista.
+Estrutura: Product contendo int id, char name[50], float price.
+Desafio: Escrever e ler múltiplas instâncias de structs em um arquivo binário.
+3. Banco de Dados Simples de Funcionários
+Objetivo: Criar um arquivo binário que armazene informações sobre empregados, como nome, idade, cargo e salário. Escreva funções para adicionar, editar e excluir registros.
+Estrutura: Employee contendo char name[50], int age, char role[30], double salary.
+Desafio: Manipulação de arquivos binários grandes e edição de registros.
+4. Gestão de Notas de Estudantes
+Objetivo: Criar um sistema para armazenar e recuperar as notas de uma turma de estudantes. Cada estudante tem um nome e uma lista de notas.
+Estrutura: Student contendo char name[50] e um array de float grades[10].
+Desafio: Trabalhar com arrays dentro de structs e manipulação de dados binários de forma eficiente.
+5. Sistema de Armazenamento de Tarefas
+Objetivo: Criar um arquivo binário para armazenar tarefas de um sistema de gerenciamento de tarefas. Cada tarefa tem descrição, prazo e prioridade.
+Estrutura: Task contendo char description[200], char deadline[20], int priority.
+Desafio: Manipular strings e tipos de dados temporais (como datas) em arquivos binários.
+6. Registro de Dados de Sensor de Temperatura
+Objetivo: Armazenar leituras de sensores de temperatura em um arquivo binário, incluindo o timestamp da medição. Depois, leia os dados e calcule a média das temperaturas.
+Estrutura: TemperatureReading contendo time_t timestamp e float temperature.
+Desafio: Trabalhar com tipos de dados temporais (time_t) e cálculos em dados binários.
+7. Simulação de um Sistema de Compras
+Objetivo: Criar um arquivo binário para armazenar informações sobre compras realizadas por clientes. Cada compra inclui detalhes do produto, quantidade e preço total.
+Estrutura: Purchase contendo char product_name[50], int quantity, float total_price.
+Desafio: Manipular múltiplos registros em arquivos binários e realizar cálculos com os dados lidos.
+8. Sistema de Gerenciamento de Inventário
+Objetivo: Criar e ler um arquivo binário que armazene o inventário de uma loja, com a quantidade e o preço dos produtos. O sistema deve permitir adicionar novos produtos e atualizar os existentes.
+Estrutura: InventoryItem contendo char product_name[100], int quantity, float price.
+Desafio: Adicionar, ler e atualizar registros em um arquivo binário de inventário.
+9. Armazenamento de Posições Geográficas
+Objetivo: Criar um arquivo binário para armazenar coordenadas geográficas (latitude, longitude e altitude) e depois exibir as coordenadas armazenadas.
+Estrutura: GeoLocation contendo float latitude, float longitude, float altitude.
+Desafio: Trabalhar com dados de ponto flutuante e coordenadas geográficas em arquivos binários.
+10. Sistema de Logs de Aplicação
+Objetivo: Criar um sistema de log que armazene mensagens de log com o timestamp e o tipo de log (erro, aviso, informação). O sistema deve ser capaz de adicionar e ler logs.
+Estrutura: LogEntry contendo time_t timestamp, char message[200], char log_level[10].
+Desafio: Trabalhar com strings, dados temporais e garantir a integridade dos dados no arquivo binário.
+Desafios comuns para esses exercícios:
+Leitura e Escrita de Dados Binários: Garantir que a leitura e escrita sejam feitas corretamente, mantendo a integridade dos dados.
+Estruturas Complexas: Lidar com arrays dentro de structs e com tipos de dados como strings e temporais.
+Edição e Atualização de Arquivos Binários: Para alguns exercícios, você precisará modificar ou atualizar dados dentro de um arquivo binário, o que pode exigir a reescrita de parte do arquivo ou manipulação de índices.
+Cálculos e Processamentos de Dados: Depois de ler os dados binários, você pode precisar processá-los para calcular totais, médias ou gerar relatórios.
+Esses exercícios cobrem uma ampla gama de situações do mundo real onde a manipulação de arquivos binários e structs seria útil. Eles ajudam a entender como trabalhar com dados compactados e com tipos de dados mais complexos de forma eficiente.

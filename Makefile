@@ -4,3 +4,6 @@
 run:
 	clang-17 -o main ${file} && ./main && rm main
 
+drun:
+	if [ "$$BUILD" = "1" ]; then docker build -t main_c -f Dockerfile .; fi
+	docker compose run --rm --remove-orphans main_c
