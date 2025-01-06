@@ -2,7 +2,7 @@
 
 
 run:
-	clang-17 -o main ${file} && ./main && rm main
+	clang-17 -Wall -Wextra -Werror -o main ${file} && ./main && rm main
 
 drun:
 	if [ "$$BUILD" = "1" ]; then docker build -t main_c -f Dockerfile .; fi

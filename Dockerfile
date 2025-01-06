@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY main.c .
 
-RUN gcc -o main main.c
+RUN gcc -Wall -Wextra -Werror -o main main.c
 
 FROM debian:bookworm-slim
 
