@@ -11,4 +11,4 @@ add_subdirectory(configured)
 add_executable(main main.c)
 target_link_libraries(main PUBLIC Lib)
 include_directories("${CMAKE_BINARY_DIR}/configured_files/include")
-
+add_compile_options(-Wall -Wextra -Werror)
