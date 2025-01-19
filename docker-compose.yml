@@ -1,5 +1,0 @@
-services:
-  main_c:
-    build: .
-    image: main_c
-
