@@ -5,7 +5,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN rm -rf build/CMakeCache.txt build/* && cmake -S . -B ./build && cmake --build ./build
+RUN rm -rf build/CMakeCache.txt build/* && \
+    cmake -S . -B ./build && \
+    cmake --build ./build
 
 # Etapa de Runtime
 FROM debian:bookworm-slim
