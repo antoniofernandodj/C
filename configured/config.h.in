@@ -1,0 +1,18 @@
+/* Configuração gerada pelo CMake */
+
+/* Define se o recurso X está habilitado */
+#cmakedefine ENABLE_FEATURE_X @ENABLE_FEATURE_X@
+
+/* Versão do projeto */
+#define PROJECT_NAME "@PROJECT_NAME@"
+#define PROJECT_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define PROJECT_VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define PROJECT_VERSION_PATCH @PROJECT_VERSION_PATCH@
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+/* Definindo outras opções de configuração */
+#define ENABLE_FEATURE_X 1  /* 1 para habilitado, 0 para desabilitado */
+
+#endif /* CONFIG_H */

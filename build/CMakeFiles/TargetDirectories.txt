@@ -1,0 +1,6 @@
+/home/antonio/Development/C/build/CMakeFiles/Lib.dir
+/home/antonio/Development/C/build/CMakeFiles/main.dir
+/home/antonio/Development/C/build/CMakeFiles/edit_cache.dir
+/home/antonio/Development/C/build/CMakeFiles/rebuild_cache.dir
+/home/antonio/Development/C/build/configured/CMakeFiles/edit_cache.dir
+/home/antonio/Development/C/build/configured/CMakeFiles/rebuild_cache.dir
