@@ -1,3 +1,4 @@
+# Etapa de Build
 FROM cmake-builder AS builder
 
 WORKDIR /app
