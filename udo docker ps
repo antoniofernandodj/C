@@ -1,0 +1,28 @@
+[0;1;32m●[0m docker-desktop.service - Docker Desktop
+     Loaded: loaded (]8;;file://antonio/usr/lib/systemd/user/docker-desktop.service/usr/lib/systemd/user/docker-desktop.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Sun 2025-03-16 23:06:11 -03; 10s ago
+   Main PID: 93364 (com.docker.back)
+      Tasks: 45 (limit: 18741)
+     Memory: 274.5M (peak: 274.8M)
+        CPU: 934ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/docker-desktop.service
+             ├─[0;38;5;245m93364 /opt/docker-desktop/bin/com.docker.backend[0m
+             ├─[0;38;5;245m93398 /opt/docker-desktop/bin/com.docker.backend run[0m
+             ├─[0;38;5;245m93415 com.docker.dev-envs -watchdog[0m
+             ├─[0;38;5;245m93416 com.docker.build[0m
+             ├─[0;38;5;245m93417 "/opt/docker-desktop/Docker Desktop --reason=open-tray --analytics-enabled=true --name=dashboard"[0m
+             ├─[0;38;5;245m93425 /opt/docker-desktop/bin/virtiofsd --socket-path=/home/antonio/.docker/desktop/virtiofs.sock0 -o cache=auto --shared-dir=/home --sandbox=none --announce-submounts --xattr --xattrmap=:prefix:all::user.docker.desktop.::bad:all::: --translate-uid squash-guest:0:1000:4294967295 --translate-gid squash-guest:0:1000:4294967295[0m
+             ├─[0;38;5;245m93473 qemu-system-x86_64 -accel kvm -cpu host -machine q35 -m 3969 -smp 4 -kernel /opt/docker-desktop/linuxkit/kernel -append "init=/init loglevel=1 root=/dev/vdb rootfstype=erofs ro vsyscall=emulate panic=0 eth0.dhcp eth1.dhcp linuxkit.unified_cgroup_hierarchy=1     vpnkit.connect=tcp+connect://192.168.65.2:43929 console=ttyS0" -serial pipe:/tmp/qemu-console4091766464/fifo -netdev user,id=net0,ipv6=off,net=192.168.65.0/24,dhcpstart=192.168.65.9 -device virtio-net-pci,netdev=net0 -vga none -nographic -monitor none -drive if=none,file=/home/antonio/.docker/desktop/vms/0/data/Docker.raw,format=raw,id=hd0 -device virtio-blk-pci,drive=hd0,serial=dummyserial -drive if=none,file=/opt/docker-desktop/linuxkit/boot.img,format=raw,id=hd1,readonly=on -device virtio-blk-pci,drive=hd1,serial=dummyserial -object memory-backend-memfd,id=mem,size=3969M,share=on -numa node,memdev=mem -chardev socket,id=char0,path=/home/antonio/.docker/desktop/virtiofs.sock0 -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=virtiofs0[0m
+             ├─[0;38;5;245m93491 "/opt/docker-desktop/Docker Desktop" --type=zygote --no-zygote-sandbox[0m
+             └─[0;38;5;245m93492 "/opt/docker-desktop/Docker Desktop" --type=zygote[0m
+
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.864820072Z][main.component        ] notifying auth.Settings took 525.679µs
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.870687193Z][main.component        ] notify features.settings
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.870767653Z][main.component        ] notifying features.settings took 2.946383ms
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.873414233Z][main.features/unleash ] fetching features from remote https://hub.docker.com/v2/feature-flags/proxy/
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.893383903Z][main.component        ] 2/68 subscribers notified in 34.814737ms
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.893452258Z][main.component        ] updated settings and notified subscribers
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.894468015Z][main                  ] successfully auto-logged in the user after starting the engine
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.895522728Z][main.sysevents        ] ListenForConfigChanges is not implemented on this platform
+Mar 16 23:06:18 antonio com.docker.backend[93364]: [02:06:18.970258266Z][main.qemu.virtiofsd-0 ] [2025-03-17T02:06:18Z INFO  virtiofsd] Client connected, servicing requests
+Mar 16 23:06:21 antonio com.docker.backend[93364]: [02:06:21.735086680Z][main.segment          ] flushing 70 messages

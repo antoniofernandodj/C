@@ -1,0 +1,2 @@
+/home/antonio/Development/C/CMakeFiles/edit_cache.dir
+/home/antonio/Development/C/CMakeFiles/rebuild_cache.dir

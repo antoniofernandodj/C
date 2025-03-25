@@ -1,0 +1,51 @@
+#include <stdint.h>
+#include <stdio.h> 
+
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <string.h>
+
+#include "my_lib.h"
+
+
+/**
+ * @file main.c
+ * @brief This is the main file description.
+ */
+
+/**
+ * @brief Main function of the program.
+ * 
+ * This function prints "Ola mundo!" to the console.
+ * 
+ * @return 0 on success.
+ */
+int main() {
+
+    // Cria um segmento de memória compartilhada
+    int shmid = shmget(1234, 1024, 0666 | IPC_CREAT);
+    if (shmid == -1) {
+        perror("shmget failed");
+        return 1;
+    }
+
+    // Anexa o segmento de memória compartilhada ao espaço do processo
+    char *data = (char *)shmat(shmid, NULL, 0);
+    if (data == (char *)-1) {
+        perror("shmat failed");
+        return 1;
+    }
+
+    // Escreve na memória compartilhada
+    strcpy(data, "Hello, shared memory!");
+
+    // Avisa o outro programa (por exemplo, usando um arquivo ou sinal)
+    printf("Dados escritos na memória compartilhada. Notifique o outro programa.\n");
+
+    // Desanexa a memória compartilhada
+    shmdt(data);
+
+    return 0;
+
+
+}

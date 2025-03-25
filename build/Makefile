@@ -126,7 +126,7 @@ Lib: cmake_check_build_system
 
 # fast build rule for target.
 Lib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lib.dir/build.make src/CMakeFiles/Lib.dir/build
 .PHONY : Lib/fast
 
 #=============================================================================
@@ -139,56 +139,8 @@ main: cmake_check_build_system
 
 # fast build rule for target.
 main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
 .PHONY : main/fast
-
-main.o: main.c.o
-.PHONY : main.o
-
-# target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.o
-.PHONY : main.c.o
-
-main.i: main.c.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.s
-.PHONY : main.c.s
-
-my_lib.o: my_lib.c.o
-.PHONY : my_lib.o
-
-# target to build an object file
-my_lib.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/my_lib.c.o
-.PHONY : my_lib.c.o
-
-my_lib.i: my_lib.c.i
-.PHONY : my_lib.i
-
-# target to preprocess a source file
-my_lib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/my_lib.c.i
-.PHONY : my_lib.c.i
-
-my_lib.s: my_lib.c.s
-.PHONY : my_lib.s
-
-# target to generate assembly for a file
-my_lib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/my_lib.c.s
-.PHONY : my_lib.c.s
 
 # Help Target
 help:
@@ -200,12 +152,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Lib"
 	@echo "... main"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... my_lib.o"
-	@echo "... my_lib.i"
-	@echo "... my_lib.s"
 .PHONY : help
 
 

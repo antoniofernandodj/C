@@ -6,9 +6,10 @@ project(
     LANGUAGES C
 )
 
-add_library(Lib STATIC my_lib.c)
-add_subdirectory(configured)
-add_executable(main main.c)
-target_link_libraries(main PUBLIC Lib)
-include_directories("${CMAKE_BINARY_DIR}/configured_files/include")
+
+include_directories("./src")
+add_subdirectory(src)
+include_directories(
+    "${CMAKE_BINARY_DIR}/configured_files/include"
+)
 add_compile_options(-Wall -Wextra -Werror)
